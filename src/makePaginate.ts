@@ -73,11 +73,13 @@ const makePaginate = <ModelType extends Model>(
     const totalCountQueryOptions = {
       where,
       ...restQueryOptions,
+      distinct: true,
     };
 
     const cursorCountQueryOptions = {
       where: paginationWhere,
       ...restQueryOptions,
+      distinct: true,
     };
 
     const [instances, totalCount, cursorCount] = await Promise.all([
